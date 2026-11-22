@@ -1,0 +1,12 @@
+export type OperadorBinario = '+' | '−' | '×' | '÷'
+export type AccionCalculadora =
+    | 'borrar-todo'
+    | 'borrar-entrada'
+    | 'retroceso'
+    | 'signo'
+    | 'alternar'
+    | 'operador'
+    | 'digito'
+    | 'decimal'
+    | 'igual'
+    | 'constante'
