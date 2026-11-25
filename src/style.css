@@ -26,7 +26,7 @@
         width: 42px;
         height: 42px;
         border-color: rgb(255 255 255 / 25%);
-        background-color: #1c3442;
+        background-color: #11131B;
     }
 
     .logo {
@@ -43,7 +43,7 @@
 
     .pantalla-contenedor {
         @apply mb-4 flex min-h-[124px] flex-col justify-end overflow-hidden rounded-[18px] border border-white/10 px-[18px] py-4 text-right;
-        background-color: #1c3442;
+        background-color: #11131B;
         box-shadow: inset 0 3px 12px rgb(0 0 0 / 15%);
     }
 
