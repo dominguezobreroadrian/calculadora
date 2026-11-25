@@ -79,6 +79,7 @@
     .tecla {
         @apply grid place-items-center font-semibold transition;
         border-radius: 15px;
+
     }
 
     .tecla:focus-visible,
