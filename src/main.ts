@@ -37,14 +37,15 @@ const esAccionCalculadora = (valor: string | undefined): valor is AccionCalculad
 
 // Guardamos los elementos del HTML una sola vez: todas las funciones los reutilizan para
 // actualizar la pantalla, gestionar los botones y expandir o contraer la calculadora.
-const pantalla = document.querySelector<HTMLParagraphElement>('#pantalla')          // número grande
-const expresion = document.querySelector<HTMLParagraphElement>('#expresion')        // operación pequeña ("3 + 4 =")
-const teclasAvanzadas = document.querySelector<HTMLDivElement>('#teclasAvanzadas')  // teclas del modo ampliado
-const botonExpandir = document.querySelector<HTMLButtonElement>('#botonExpandir')   // botón ↑ / ↓
-const calculadora = document.querySelector<HTMLElement>('#calculadora')             // contenedor general
-const botonLogoArch = document.querySelector<HTMLButtonElement>('#botonLogoArch')   // botón que envuelve el logo
-const logoArch = document.querySelector<HTMLImageElement>('#logoArch')              // imagen del logo
-const teclado = document.querySelector<HTMLDivElement>('#teclado')                  // contenedor de todos los botones
+const pantalla = document.querySelector<HTMLParagraphElement>('#pantalla')              // número grande
+const expresion = document.querySelector<HTMLParagraphElement>('#expresion')            // operación pequeña ("3 + 4 =")
+const teclasAvanzadas = document.querySelector<HTMLDivElement>('#teclasAvanzadas')      // teclas del modo ampliado
+const botonExpandir = document.querySelector<HTMLButtonElement>('#botonExpandir')       // botón ↑ / ↓
+const calculadora = document.querySelector<HTMLElement>('#calculadora')                 // contenedor general
+const botonLogoArch = document.querySelector<HTMLButtonElement>('#botonLogoArch')       // botón que envuelve el logo
+const logoArch = document.querySelector<HTMLImageElement>('#logoArch')                  // imagen del logo
+const teclado = document.querySelector<HTMLDivElement>('#teclado')                      // contenedor de todos los botones
+const recuadroPantalla = document.querySelector<HTMLDivElement>('#recuadroPantalla')    // contenedor del recuadro de la pantalla
 
 // Si falta alguno de los elementos que necesita la aplicación, es mejor avisar al desarrollador
 // aquí que dejar que el error aparezca más tarde al pulsar un botón.
@@ -64,13 +65,19 @@ if (
 // Este valor recuerda el color actual del icono para alternarlo en cada pulsación.
 let logoArchRojo = true
 
+// Ponemos por defecto el borde de color rojo porque por defecto la calculadora estara apagada
+recuadroPantalla?.style.setProperty('border', `3px solid red`);
+
 // El mismo botón alterna las dos imágenes del logo; no afecta a las operaciones ni a la pantalla.
 // Ejemplo: primera pulsación -> verde; segunda pulsación -> rojo.
+// Aquí si el logoArchRojo es false lo pintamos de verde porque significa que esta encendida la calculadora
 botonLogoArch.addEventListener('click', () => {
     logoArchRojo = !logoArchRojo
     logoArch.src = logoArchRojo
         ? 'https://img.icons8.com/material-two-tone/48/FA5252/arch-linux.png'
-        : 'https://img.icons8.com/material-two-tone/48/40C057/arch-linux.png'
+        : 'https://img.icons8.com/material-two-tone/48/40C057/arch-linux.png' 
+    recuadroPantalla?.style.setProperty('border', `3px solid ${logoArchRojo ? 'red' : 'green'}`);
+    
 })
 
 // valorPantalla es texto porque puede contener un punto decimal mientras se escribe, por ejemplo

@@ -121,7 +121,7 @@
     }
 
     .tecla--numero:hover {
-        background-color: white;
+        background-color: coral;
     }
 
     .tecla--operador:hover {
