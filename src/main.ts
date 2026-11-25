@@ -66,7 +66,7 @@ if (
 let logoArchRojo = true
 
 // Ponemos por defecto el borde de color rojo porque por defecto la calculadora estara apagada
-recuadroPantalla?.style.setProperty('border', `3px solid red`);
+recuadroPantalla?.style.setProperty('border', `3px solid red`);   
 
 // El mismo botón alterna las dos imágenes del logo; no afecta a las operaciones ni a la pantalla.
 // Ejemplo: primera pulsación -> verde; segunda pulsación -> rojo.
@@ -76,8 +76,7 @@ botonLogoArch.addEventListener('click', () => {
     logoArch.src = logoArchRojo
         ? 'https://img.icons8.com/material-two-tone/48/FA5252/arch-linux.png'
         : 'https://img.icons8.com/material-two-tone/48/40C057/arch-linux.png' 
-    recuadroPantalla?.style.setProperty('border', `3px solid ${logoArchRojo ? 'red' : 'green'}`);
-    
+    recuadroPantalla?.style.setProperty('border', `3px solid ${logoArchRojo ? 'red' : 'green'}`); 
 })
 
 // valorPantalla es texto porque puede contener un punto decimal mientras se escribe, por ejemplo
